@@ -13,10 +13,3 @@ Welcome to ``PandaBot``'s documentation!
    intro
    PandaBot
    examples
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
