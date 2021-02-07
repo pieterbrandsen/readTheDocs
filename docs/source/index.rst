@@ -5,8 +5,6 @@ Welcome to ``PandaBot``'s documentation!
    :maxdepth: 2
    :caption: Contents
    
-   global/*
-   room/*
-   creep/*
+   *
 
    
