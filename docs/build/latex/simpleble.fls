@@ -1,10 +1,10 @@
-PWD /home/pi/Workspace/libraries/simpleble/docs/build/latex
+PWD /home/pi/Workspace/libraries/PandaBot/docs/build/latex
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT simpleble.tex
-OUTPUT simpleble.log
+INPUT PandaBot.tex
+OUTPUT PandaBot.log
 INPUT sphinxmanual.cls
 INPUT sphinxmanual.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -132,10 +132,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
-OUTPUT simpleble.idx
-INPUT simpleble.aux
-INPUT simpleble.aux
-OUTPUT simpleble.aux
+OUTPUT PandaBot.idx
+INPUT PandaBot.aux
+INPUT PandaBot.aux
+OUTPUT PandaBot.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
@@ -152,8 +152,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-OUTPUT simpleble.out
-OUTPUT simpleble.pdf
+OUTPUT PandaBot.out
+OUTPUT PandaBot.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -172,4 +172,4 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-OUTPUT simpleble.toc
+OUTPUT PandaBot.toc

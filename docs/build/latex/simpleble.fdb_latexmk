@@ -1,9 +1,9 @@
 # Fdb version 3
-["makeindex simpleble.idx"] 0 "simpleble.idx" "simpleble.ind" "simpleble" 0
-  "simpleble.idx" 1520671863 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex PandaBot.idx"] 0 "PandaBot.idx" "PandaBot.ind" "PandaBot" 0
+  "PandaBot.idx" 1520671863 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "simpleble.ind"
-["pdflatex"] 1520671754 "simpleble.tex" "simpleble.pdf" "simpleble" 1520671754
+  "PandaBot.ind"
+["pdflatex"] 1520671754 "PandaBot.tex" "PandaBot.pdf" "PandaBot" 1520671754
   "/etc/texmf/web2c/texmf.cnf" 1520667885 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
@@ -92,9 +92,9 @@
   "framed.sty" 0 -1 0 ""
   "needspace.sty" 0 -1 0 ""
   "parskip.sty" 0 -1 0 ""
-  "simpleble.aux" 1520671471 8 a94a2480d3289e625eea47cd1b285758 ""
-  "simpleble.ind" 0 -1 0 "makeindex simpleble.idx"
-  "simpleble.tex" 1520671752 46300 0a8a542ab2852c35c2d92e3b4de4c461 ""
+  "PandaBot.aux" 1520671471 8 a94a2480d3289e625eea47cd1b285758 ""
+  "PandaBot.ind" 0 -1 0 "makeindex PandaBot.idx"
+  "PandaBot.tex" 1520671752 46300 0a8a542ab2852c35c2d92e3b4de4c461 ""
   "sphinx.sty" 1520567615 67680 ce8326c34b1df95a227eb651517870ca ""
   "sphinxhighlight.sty" 1520671747 8137 a8d803f41374abae62110fc10b771721 ""
   "sphinxmanual.cls" 1520567615 3589 0b0aac49c6f36925cf5f9d524a75a978 ""
@@ -105,9 +105,9 @@
   "varwidth.sty" 0 -1 0 ""
   "wrapfig.sty" 0 -1 0 ""
   (generated)
-  "simpleble.idx"
-  "simpleble.out"
-  "simpleble.aux"
-  "simpleble.log"
-  "simpleble.pdf"
-  "simpleble.toc"
+  "PandaBot.idx"
+  "PandaBot.out"
+  "PandaBot.aux"
+  "PandaBot.log"
+  "PandaBot.pdf"
+  "PandaBot.toc"

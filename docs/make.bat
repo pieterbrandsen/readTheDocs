@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
-set SPHINXPROJ=simpleble
+set SPHINXPROJ=PandaBot
 
 if "%1" == "" goto help
 

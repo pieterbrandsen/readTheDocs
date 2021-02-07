@@ -5,7 +5,7 @@ Installation/Usage:
 *******************
 As the package has not been published on PyPi yet, it CANNOT be install using pip. 
 
-For now, the suggested method is to put the file `simpleble.py` in the same directory as your source files and call ``from simpleble import SimpleBleClient, SimpleBleDevice``.
+For now, the suggested method is to put the file `PandaBot.py` in the same directory as your source files and call ``from PandaBot import PandaBotClient, PandaBotDevice``.
 
 ``bluepy`` must also be installed and imported as shown in the example below.
 For instructions about how to install, as well as the full documentation of, ``bluepy`` please refer `here <https://github.com/IanHarvey/bluepy/>`_
@@ -22,7 +22,7 @@ Search for device, connect and read characteristic
     """
 
     from bluepy.btle import *
-    from simpleble import SimpleBleClient, SimpleBleDevice
+    from PandaBot import PandaBotClient, PandaBotDevice
 
     # The UUID of the characteristic we want to read and the name of the device # we want to read it from
     Characteristic_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8"
@@ -39,8 +39,8 @@ Search for device, connect and read characteristic
     #     print("  Characteristic UUID: " + characteristic.uuid)
     #     print("  Data: " + str(data))
 
-    # Instantiate a SimpleBleClient and set it's scan callback
-    bleClient = SimpleBleClient()
+    # Instantiate a PandaBotClient and set it's scan callback
+    bleClient = PandaBotClient()
     bleClient.setScanCallback(myScanCallback)
     # TODO: NOTIFICATIONS ARE NOT SUPPORTED YET
     # bleClient.setNotificationCallback(myNotificationCollback)

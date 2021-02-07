@@ -54,7 +54,7 @@
 
 
 
-\title{simpleble Documentation}
+\title{PandaBot Documentation}
 \date{Mar 10, 2018}
 \release{0.0.1}
 \author{Lyudmil Vladimirov}
@@ -71,10 +71,10 @@
 
 
 \chapter{Introduction}
-\label{\detokenize{intro:welcome-to-simpleble-s-documentation}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro::doc}}
-\sphinxcode{\sphinxupquote{simpleble}} is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the \sphinxcode{\sphinxupquote{bluepy}} package created by Ian Harvey (see \sphinxhref{https://github.com/IanHarvey/bluepy/}{here})
+\label{\detokenize{intro:welcome-to-PandaBot-s-documentation}}\label{\detokenize{intro:introduction}}\label{\detokenize{intro::doc}}
+\sphinxcode{\sphinxupquote{PandaBot}} is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the \sphinxcode{\sphinxupquote{bluepy}} package created by Ian Harvey (see \sphinxhref{https://github.com/IanHarvey/bluepy/}{here})
 
-The aim here was to define a single object which would allow users to perform the various operations performed by the \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}}, \sphinxcode{\sphinxupquote{bluepy.btle.Scanner}}, \sphinxcode{\sphinxupquote{bluepy.btle.Service}} and \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} classes of \sphinxcode{\sphinxupquote{bluepy}}, from one central place. This functionality is facilitated by the \sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}} and \sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}} classes, where the latter is an extention/subclass of \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}}, combined with properties of \sphinxcode{\sphinxupquote{bluepy.btle.ScanEntry}}.
+The aim here was to define a single object which would allow users to perform the various operations performed by the \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}}, \sphinxcode{\sphinxupquote{bluepy.btle.Scanner}}, \sphinxcode{\sphinxupquote{bluepy.btle.Service}} and \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} classes of \sphinxcode{\sphinxupquote{bluepy}}, from one central place. This functionality is facilitated by the \sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}} and \sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}} classes, where the latter is an extention/subclass of \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}}, combined with properties of \sphinxcode{\sphinxupquote{bluepy.btle.ScanEntry}}.
 
 The current implementation has been developed in Python 3 and tested on a Raspberry Pi Zero W, running Raspbian 9 (stretch), but should work with Python 2.7+ (maybe with minor modifications in terms of printing and error handling) and most Debian based OSs.
 
@@ -89,25 +89,25 @@ This package is intended to provide a quick, as well as (hopefully) easy to unde
 \section{Limitations}
 \label{\detokenize{intro:limitations}}\begin{itemize}
 \item {} 
-As my main use-case scenario was to simply connect two devices, the current version of {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} has been designed and implemented with this use-case in mind. As such, if you are looking for a package to allow you to connect to multiple devices, then know that off-the-self this package DOES NOT allow you to do so. However, implementing such a feature is an easily achievable task, which has been planned for sometime in the near future and if there proves to be interest on the project, I would be happy to speed up the process.
+As my main use-case scenario was to simply connect two devices, the current version of {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} has been designed and implemented with this use-case in mind. As such, if you are looking for a package to allow you to connect to multiple devices, then know that off-the-self this package DOES NOT allow you to do so. However, implementing such a feature is an easily achievable task, which has been planned for sometime in the near future and if there proves to be interest on the project, I would be happy to speed up the process.
 
 \item {} 
 Only Read and Write operations are currently supported, but I am planning on adding Notifications soon.
 
 \item {} 
-Although the interfacing operations of the \sphinxcode{\sphinxupquote{bluepy.btle.Service}} and \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}} classes have been brought forward to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} class, the same has not been done for the \sphinxcode{\sphinxupquote{bluepy.btle.Descriptor}}, meaning that the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} cannot be used to directly access the Descriptors. This can however be done easily by obtaining a handle of a {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} object and calling the superclass \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral.getDescriptors()}} method.
+Although the interfacing operations of the \sphinxcode{\sphinxupquote{bluepy.btle.Service}} and \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}} classes have been brought forward to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} class, the same has not been done for the \sphinxcode{\sphinxupquote{bluepy.btle.Descriptor}}, meaning that the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} cannot be used to directly access the Descriptors. This can however be done easily by obtaining a handle of a {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} object and calling the superclass \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral.getDescriptors()}} method.
 
 \end{itemize}
 
 
 \chapter{Documentation}
-\label{\detokenize{simpleble:documentation}}\label{\detokenize{simpleble::doc}}
+\label{\detokenize{PandaBot:documentation}}\label{\detokenize{PandaBot::doc}}
 
-\section{The \sphinxstyleliteralintitle{\sphinxupquote{SimpleBleClient}} class}
-\label{\detokenize{simpleble:the-simplebleclient-class}}\index{SimpleBleClient (class in simpleble)}
+\section{The \sphinxstyleliteralintitle{\sphinxupquote{PandaBotClient}} class}
+\label{\detokenize{PandaBot:the-PandaBotclient-class}}\index{PandaBotClient (class in PandaBot)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{simpleble.}}\sphinxbfcode{\sphinxupquote{SimpleBleClient}}}{\emph{iface=0}, \emph{scanCallback=None}, \emph{notificationCallback=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{PandaBot.}}\sphinxbfcode{\sphinxupquote{PandaBotClient}}}{\emph{iface=0}, \emph{scanCallback=None}, \emph{notificationCallback=None}}{}
 Bases: \sphinxcode{\sphinxupquote{object}}
 
 This is a class implementation of a simple BLE client.
@@ -117,22 +117,22 @@ This is a class implementation of a simple BLE client.
 \sphinxstyleliteralstrong{\sphinxupquote{iface}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} The Bluetooth interface on which to make the connection. On Linux, 0 means \sphinxtitleref{/dev/hci0}, 1 means \sphinxtitleref{/dev/hci1} and so on., defaults to 0
 
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{scanCallback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, device, isNewDevice, isNewData)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} that invoked the callback and \sphinxcode{\sphinxupquote{device}} is the detected {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} object. \sphinxcode{\sphinxupquote{isNewDev}} is \sphinxtitleref{True} if the device (as identified by its MAC address) has not been seen before by the scanner, and \sphinxtitleref{False} otherwise. \sphinxcode{\sphinxupquote{isNewData}} is \sphinxtitleref{True} if new or updated advertising data is available, defaults to None
+\sphinxstyleliteralstrong{\sphinxupquote{scanCallback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, device, isNewDevice, isNewData)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} that invoked the callback and \sphinxcode{\sphinxupquote{device}} is the detected {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} object. \sphinxcode{\sphinxupquote{isNewDev}} is \sphinxtitleref{True} if the device (as identified by its MAC address) has not been seen before by the scanner, and \sphinxtitleref{False} otherwise. \sphinxcode{\sphinxupquote{isNewData}} is \sphinxtitleref{True} if new or updated advertising data is available, defaults to None
 
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{notificationCallback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
+\sphinxstyleliteralstrong{\sphinxupquote{notificationCallback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
 
 \end{itemize}
 
 \end{description}\end{quote}
-\index{connect() (simpleble.SimpleBleClient method)}
+\index{connect() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.connect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{connect}}}{\emph{device}}{}
-Attempts to connect client to a given {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} object and returns a bool indication of the result.
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.connect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{connect}}}{\emph{device}}{}
+Attempts to connect client to a given {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} object and returns a bool indication of the result.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{device}} ({\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{SimpleBleDevice}}}}}) \textendash{} An instance of the device to which we want to connect. Normally acquired by calling {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient.scan()}}}}} or {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient.searchDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient.searchDevice()}}}}}
+\sphinxstyleliteralstrong{\sphinxupquote{device}} ({\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{PandaBotDevice}}}}}) \textendash{} An instance of the device to which we want to connect. Normally acquired by calling {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient.scan()}}}}} or {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient.searchDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient.searchDevice()}}}}}
 
 \item[{Returns}] \leavevmode
 \sphinxtitleref{True} if connection was successful, \sphinxtitleref{False} otherwise
@@ -144,19 +144,19 @@ bool
 
 \end{fulllineitems}
 
-\index{disconnect() (simpleble.SimpleBleClient method)}
+\index{disconnect() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.disconnect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{disconnect}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.disconnect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{disconnect}}}{}{}
 Drops existing connection. 
 Note that the current version of the project assumes that the client can be connected to at most one device at a time.
 
 \end{fulllineitems}
 
-\index{getCharacteristics() (simpleble.SimpleBleClient method)}
+\index{getCharacteristics() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.getCharacteristics}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getCharacteristics}}}{\emph{startHnd=1}, \emph{endHnd=65535}, \emph{uuids=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.getCharacteristics}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getCharacteristics}}}{\emph{startHnd=1}, \emph{endHnd=65535}, \emph{uuids=None}}{}
 Returns a list containing \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} objects for the peripheral. If no arguments are given, will return all characteristics. If startHnd and/or endHnd are given, the list is restricted to characteristics whose handles are within the given range.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -181,10 +181,10 @@ list
 
 \end{fulllineitems}
 
-\index{isConnected() (simpleble.SimpleBleClient method)}
+\index{isConnected() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.isConnected}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{isConnected}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.isConnected}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{isConnected}}}{}{}
 Check to see if client is connected to a device
 \begin{quote}\begin{description}
 \item[{Returns}] \leavevmode
@@ -197,18 +197,18 @@ bool
 
 \end{fulllineitems}
 
-\index{printFoundDevices() (simpleble.SimpleBleClient method)}
+\index{printFoundDevices() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.printFoundDevices}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{printFoundDevices}}}{}{}
-Print all devices discovered during the last scan. Should only be called after a {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient.scan()}}}}} has been called first.
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.printFoundDevices}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{printFoundDevices}}}{}{}
+Print all devices discovered during the last scan. Should only be called after a {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient.scan()}}}}} has been called first.
 
 \end{fulllineitems}
 
-\index{readCharacteristic() (simpleble.SimpleBleClient method)}
+\index{readCharacteristic() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.readCharacteristic}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{readCharacteristic}}}{\emph{characteristic=None}, \emph{uuid=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.readCharacteristic}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{readCharacteristic}}}{\emph{characteristic=None}, \emph{uuid=None}}{}
 Reads the current value of the characteristic identified by either a \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} object \sphinxcode{\sphinxupquote{characteristic}}, or a UUID string \sphinxcode{\sphinxupquote{uuid}}. If both are provided, then the characteristic will be read on the basis of the \sphinxcode{\sphinxupquote{characteristic}} object. A \sphinxcode{\sphinxupquote{bluepy.btle.BTLEException.GATT\_ERROR}} is raised if no inputs are specified or the requested characteristic was not found.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -233,17 +233,17 @@ bytearray
 
 \end{fulllineitems}
 
-\index{scan() (simpleble.SimpleBleClient method)}
+\index{scan() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.scan}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{scan}}}{\emph{timeout=10.0}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.scan}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{scan}}}{\emph{timeout=10.0}}{}
 Scans for and returns detected nearby devices
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
 \sphinxstyleliteralstrong{\sphinxupquote{timeout}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} Specify how long (in seconds) the scan should last, defaults to 10.0
 
 \item[{Returns}] \leavevmode
-List of {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} objects
+List of {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} objects
 
 \item[{Return type}] \leavevmode
 list
@@ -252,11 +252,11 @@ list
 
 \end{fulllineitems}
 
-\index{searchDevice() (simpleble.SimpleBleClient method)}
+\index{searchDevice() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.searchDevice}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{searchDevice}}}{\emph{name=None}, \emph{mac=None}, \emph{timeout=10.0}}{}
-Searches for and returns, given it exists, a {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} device objects, based on the provided \sphinxcode{\sphinxupquote{name}} and/or \sphinxcode{\sphinxupquote{mac}} address. If both a \sphinxcode{\sphinxupquote{name}} and a \sphinxcode{\sphinxupquote{mac}} are provided, then the client will only return a device that matches both conditions.
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.searchDevice}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{searchDevice}}}{\emph{name=None}, \emph{mac=None}, \emph{timeout=10.0}}{}
+Searches for and returns, given it exists, a {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} device objects, based on the provided \sphinxcode{\sphinxupquote{name}} and/or \sphinxcode{\sphinxupquote{mac}} address. If both a \sphinxcode{\sphinxupquote{name}} and a \sphinxcode{\sphinxupquote{mac}} are provided, then the client will only return a device that matches both conditions.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
@@ -266,7 +266,7 @@ Searches for and returns, given it exists, a {\hyperref[\detokenize{simpleble:si
 \sphinxstyleliteralstrong{\sphinxupquote{mac}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} The MAC address of the device, defaults to None
 
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{timeout}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} Specify how long (in seconds) the scan should last, defaults to 10.0. Internally, it serves as an input to the invoked {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient.scan()}}}}} method.
+\sphinxstyleliteralstrong{\sphinxupquote{timeout}} (\sphinxstyleliteralemphasis{\sphinxupquote{float}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} Specify how long (in seconds) the scan should last, defaults to 10.0. Internally, it serves as an input to the invoked {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient.scan}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient.scan()}}}}} method.
 
 \end{itemize}
 
@@ -274,45 +274,45 @@ Searches for and returns, given it exists, a {\hyperref[\detokenize{simpleble:si
 \sphinxstyleliteralstrong{\sphinxupquote{AssertionError}} \textendash{} If neither a \sphinxcode{\sphinxupquote{name}} nor a \sphinxcode{\sphinxupquote{mac}} inputs have been provided
 
 \item[{Returns}] \leavevmode
-A {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} object if search was succesfull, None otherwise
+A {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} object if search was succesfull, None otherwise
 
 \item[{Return type}] \leavevmode
-{\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} \textbar{} None
+{\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} \textbar{} None
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{setNotificationCallback() (simpleble.SimpleBleClient method)}
+\index{setNotificationCallback() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.setNotificationCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setNotificationCallback}}}{\emph{callback}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.setNotificationCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setNotificationCallback}}}{\emph{callback}}{}
 Set the callback function to be executed when a device sends a notification to the client.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
+\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{setScanCallback() (simpleble.SimpleBleClient method)}
+\index{setScanCallback() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.setScanCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setScanCallback}}}{\emph{callback}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.setScanCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setScanCallback}}}{\emph{callback}}{}
 Set the callback function to be executed when a device is detected by the client.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, device, isNewDevice, isNewData)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} that invoked the callback and \sphinxcode{\sphinxupquote{device}} is the detected {\hyperref[\detokenize{simpleble:simpleble.SimpleBleDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleDevice}}}}} object. \sphinxcode{\sphinxupquote{isNewDev}} is \sphinxtitleref{True} if the device (as identified by its MAC address) has not been seen before by the scanner, and \sphinxtitleref{False} otherwise. \sphinxcode{\sphinxupquote{isNewData}} is \sphinxtitleref{True} if new or updated advertising data is available.
+\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, device, isNewDevice, isNewData)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} that invoked the callback and \sphinxcode{\sphinxupquote{device}} is the detected {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotDevice}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotDevice}}}}} object. \sphinxcode{\sphinxupquote{isNewDev}} is \sphinxtitleref{True} if the device (as identified by its MAC address) has not been seen before by the scanner, and \sphinxtitleref{False} otherwise. \sphinxcode{\sphinxupquote{isNewData}} is \sphinxtitleref{True} if new or updated advertising data is available.
 
 \end{description}\end{quote}
 
 \end{fulllineitems}
 
-\index{writeCharacteristic() (simpleble.SimpleBleClient method)}
+\index{writeCharacteristic() (PandaBot.PandaBotClient method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleClient.writeCharacteristic}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{writeCharacteristic}}}{\emph{val}, \emph{characteristic=None}, \emph{uuid=None}, \emph{withResponse=False}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotClient.writeCharacteristic}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{writeCharacteristic}}}{\emph{val}, \emph{characteristic=None}, \emph{uuid=None}, \emph{withResponse=False}}{}
 Writes the data val (of type str on Python 2.x, byte on 3.x) to the characteristic identified by either a \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} object \sphinxcode{\sphinxupquote{characteristic}}, or a UUID string \sphinxcode{\sphinxupquote{uuid}}. If both are provided, then the characteristic will be read on the basis of the \sphinxcode{\sphinxupquote{characteristic}} object. A \sphinxcode{\sphinxupquote{bluepy.btle.BTLEException.GATT\_ERROR}} is raised if no inputs are specified or the requested characteristic was not found. If \sphinxcode{\sphinxupquote{withResponse}} is \sphinxtitleref{True}, the client will await confirmation that the write was successful from the device.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -348,18 +348,18 @@ bool
 
 
 
-\section{The \sphinxstyleliteralintitle{\sphinxupquote{SimpleBleDevice}} class}
-\label{\detokenize{simpleble:the-simplebledevice-class}}\index{SimpleBleDevice (class in simpleble)}
+\section{The \sphinxstyleliteralintitle{\sphinxupquote{PandaBotDevice}} class}
+\label{\detokenize{PandaBot:the-PandaBotdevice-class}}\index{PandaBotDevice (class in PandaBot)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{simpleble.}}\sphinxbfcode{\sphinxupquote{SimpleBleDevice}}}{\emph{client}, \emph{addr=None}, \emph{addrType='public'}, \emph{iface=0}, \emph{data=None}, \emph{rssi=0}, \emph{connectable=False}, \emph{updateCount=0}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{PandaBot.}}\sphinxbfcode{\sphinxupquote{PandaBotDevice}}}{\emph{client}, \emph{addr=None}, \emph{addrType='public'}, \emph{iface=0}, \emph{data=None}, \emph{rssi=0}, \emph{connectable=False}, \emph{updateCount=0}}{}
 Bases: \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}}
 
 This is a conceptual class representation of a simple BLE device (GATT Server). It is essentially an extended combination of the \sphinxcode{\sphinxupquote{bluepy.btle.Peripheral}} and \sphinxcode{\sphinxupquote{bluepy.btle.ScanEntry}} classes
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{client}} (class:\sphinxtitleref{simpleble.SimpleBleClient}) \textendash{} A handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} client object that detected the device
+\sphinxstyleliteralstrong{\sphinxupquote{client}} (class:\sphinxtitleref{PandaBot.PandaBotClient}) \textendash{} A handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} client object that detected the device
 
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{addr}} (\sphinxstyleliteralemphasis{\sphinxupquote{str}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} Device MAC address, defaults to None
@@ -385,10 +385,10 @@ This is a conceptual class representation of a simple BLE device (GATT Server). 
 \end{itemize}
 
 \end{description}\end{quote}
-\index{connect() (simpleble.SimpleBleDevice method)}
+\index{connect() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.connect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{connect}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.connect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{connect}}}{}{}
 Attempts to initiate a connection with the device.
 \begin{quote}\begin{description}
 \item[{Returns}] \leavevmode
@@ -401,18 +401,18 @@ bool
 
 \end{fulllineitems}
 
-\index{disconnect() (simpleble.SimpleBleDevice method)}
+\index{disconnect() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.disconnect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{disconnect}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.disconnect}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{disconnect}}}{}{}
 Drops existing connection to device
 
 \end{fulllineitems}
 
-\index{getCharacteristics() (simpleble.SimpleBleDevice method)}
+\index{getCharacteristics() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.getCharacteristics}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getCharacteristics}}}{\emph{startHnd=1}, \emph{endHnd=65535}, \emph{uuids=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.getCharacteristics}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getCharacteristics}}}{\emph{startHnd=1}, \emph{endHnd=65535}, \emph{uuids=None}}{}
 Returns a list containing \sphinxcode{\sphinxupquote{bluepy.btle.Characteristic}} objects for the peripheral. If no arguments are given, will return all characteristics. If startHnd and/or endHnd are given, the list is restricted to characteristics whose handles are within the given range.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -437,10 +437,10 @@ list
 
 \end{fulllineitems}
 
-\index{getServices() (simpleble.SimpleBleDevice method)}
+\index{getServices() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.getServices}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getServices}}}{\emph{uuids=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.getServices}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getServices}}}{\emph{uuids=None}}{}
 Returns a list of \sphinxcode{\sphinxupquote{bluepy.blte.Service}} objects representing the services offered by the device. This will perform Bluetooth service discovery if this has not already been done; otherwise it will return a cached list of services immediately..
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -456,10 +456,10 @@ list On Python 3.x, this returns a dictionary view object, not a list
 
 \end{fulllineitems}
 
-\index{isConnected() (simpleble.SimpleBleDevice method)}
+\index{isConnected() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.isConnected}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{isConnected}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.isConnected}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{isConnected}}}{}{}
 Checks to see if device is connected
 \begin{quote}\begin{description}
 \item[{Returns}] \leavevmode
@@ -472,22 +472,22 @@ bool
 
 \end{fulllineitems}
 
-\index{printInfo() (simpleble.SimpleBleDevice method)}
+\index{printInfo() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.printInfo}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{printInfo}}}{}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.printInfo}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{printInfo}}}{}{}
 Print info about device
 
 \end{fulllineitems}
 
-\index{setNotificationCallback() (simpleble.SimpleBleDevice method)}
+\index{setNotificationCallback() (PandaBot.PandaBotDevice method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleDevice.setNotificationCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setNotificationCallback}}}{\emph{callback}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotDevice.setNotificationCallback}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{setNotificationCallback}}}{\emph{callback}}{}
 Set the callback function to be executed when the device sends a notification to the client.
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{simpleble:simpleble.SimpleBleClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{simpleble.SimpleBleClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
+\sphinxstyleliteralstrong{\sphinxupquote{callback}} (\sphinxstyleliteralemphasis{\sphinxupquote{function}}\sphinxstyleliteralemphasis{\sphinxupquote{, }}\sphinxstyleliteralemphasis{\sphinxupquote{optional}}) \textendash{} A function handle of the form \sphinxcode{\sphinxupquote{callback(client, characteristic, data)}}, where \sphinxcode{\sphinxupquote{client}} is a handle to the {\hyperref[\detokenize{PandaBot:PandaBot.PandaBotClient}]{\sphinxcrossref{\sphinxcode{\sphinxupquote{PandaBot.PandaBotClient}}}}} that invoked the callback, \sphinxcode{\sphinxupquote{characteristic}} is the notified \sphinxcode{\sphinxupquote{bluepy.blte.Characteristic}} object and data is a \sphinxtitleref{bytearray} containing the updated value. Defaults to None
 
 \end{description}\end{quote}
 
@@ -498,16 +498,16 @@ Set the callback function to be executed when the device sends a notification to
 
 
 
-\section{The \sphinxstyleliteralintitle{\sphinxupquote{SimpleBleScanDelegate}} class}
-\label{\detokenize{simpleble:the-simpleblescandelegate-class}}\index{SimpleBleScanDelegate (class in simpleble)}
+\section{The \sphinxstyleliteralintitle{\sphinxupquote{PandaBotScanDelegate}} class}
+\label{\detokenize{PandaBot:the-PandaBotscandelegate-class}}\index{PandaBotScanDelegate (class in PandaBot)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleScanDelegate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{simpleble.}}\sphinxbfcode{\sphinxupquote{SimpleBleScanDelegate}}}{\emph{callback}, \emph{client=None}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotScanDelegate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{PandaBot.}}\sphinxbfcode{\sphinxupquote{PandaBotScanDelegate}}}{\emph{callback}, \emph{client=None}}{}
 Bases: \sphinxcode{\sphinxupquote{bluepy.btle.DefaultDelegate}}
-\index{handleDiscovery() (simpleble.SimpleBleScanDelegate method)}
+\index{handleDiscovery() (PandaBot.PandaBotScanDelegate method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleScanDelegate.handleDiscovery}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{handleDiscovery}}}{\emph{scanEntry}, \emph{isNewDevice}, \emph{isNewData}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotScanDelegate.handleDiscovery}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{handleDiscovery}}}{\emph{scanEntry}, \emph{isNewDevice}, \emph{isNewData}}{}
 \end{fulllineitems}
 
 
@@ -515,16 +515,16 @@ Bases: \sphinxcode{\sphinxupquote{bluepy.btle.DefaultDelegate}}
 
 
 
-\section{The \sphinxstyleliteralintitle{\sphinxupquote{SimpleBleNotificationDelegate}} class}
-\label{\detokenize{simpleble:the-simpleblenotificationdelegate-class}}\index{SimpleBleNotificationDelegate (class in simpleble)}
+\section{The \sphinxstyleliteralintitle{\sphinxupquote{PandaBotNotificationDelegate}} class}
+\label{\detokenize{PandaBot:the-PandaBotnotificationdelegate-class}}\index{PandaBotNotificationDelegate (class in PandaBot)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleNotificationDelegate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{simpleble.}}\sphinxbfcode{\sphinxupquote{SimpleBleNotificationDelegate}}}{\emph{callback}, \emph{client}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotNotificationDelegate}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{PandaBot.}}\sphinxbfcode{\sphinxupquote{PandaBotNotificationDelegate}}}{\emph{callback}, \emph{client}}{}
 Bases: \sphinxcode{\sphinxupquote{bluepy.btle.DefaultDelegate}}
-\index{handleNotification() (simpleble.SimpleBleNotificationDelegate method)}
+\index{handleNotification() (PandaBot.PandaBotNotificationDelegate method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{simpleble:simpleble.SimpleBleNotificationDelegate.handleNotification}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{handleNotification}}}{\emph{characteristic}, \emph{data}}{}
+\phantomsection\label{\detokenize{PandaBot:PandaBot.PandaBotNotificationDelegate.handleNotification}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{handleNotification}}}{\emph{characteristic}, \emph{data}}{}
 \end{fulllineitems}
 
 
@@ -539,7 +539,7 @@ Bases: \sphinxcode{\sphinxupquote{bluepy.btle.DefaultDelegate}}
 \label{\detokenize{examples:installation-usage}}
 As the package has not been published on PyPi yet, it CANNOT be install using pip.
 
-For now, the suggested method is to put the file \sphinxtitleref{simpleble.py} in the same directory as your source files and call \sphinxcode{\sphinxupquote{from simpleble import SimpleBleClient, SimpleBleDevice}}.
+For now, the suggested method is to put the file \sphinxtitleref{PandaBot.py} in the same directory as your source files and call \sphinxcode{\sphinxupquote{from PandaBot import PandaBotClient, PandaBotDevice}}.
 
 \sphinxcode{\sphinxupquote{bluepy}} must also be installed and imported as shown in the example below.
 For instructions about how to install, as well as the full documentation of, \sphinxcode{\sphinxupquote{bluepy}} please refer \sphinxhref{https://github.com/IanHarvey/bluepy/}{here}
@@ -557,7 +557,7 @@ For instructions about how to install, as well as the full documentation of, \sp
 \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 
 \PYG{k+kn}{from} \PYG{n+nn}{bluepy.btle} \PYG{k+kn}{import} \PYG{o}{*}
-\PYG{k+kn}{from} \PYG{n+nn}{simpleble} \PYG{k+kn}{import} \PYG{n}{SimpleBleClient}\PYG{p}{,} \PYG{n}{SimpleBleDevice}
+\PYG{k+kn}{from} \PYG{n+nn}{PandaBot} \PYG{k+kn}{import} \PYG{n}{PandaBotClient}\PYG{p}{,} \PYG{n}{PandaBotDevice}
 
 \PYG{c+c1}{\PYGZsh{} The UUID of the characteristic we want to read and the name of the device \PYGZsh{} we want to read it from}
 \PYG{n}{Characteristic\PYGZus{}UUID} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{beb5483e\PYGZhy{}36e1\PYGZhy{}4688\PYGZhy{}b7f5\PYGZhy{}ea07361b26a8}\PYG{l+s+s2}{\PYGZdq{}}
@@ -574,8 +574,8 @@ For instructions about how to install, as well as the full documentation of, \sp
 \PYG{c+c1}{\PYGZsh{}     print(\PYGZdq{}  Characteristic UUID: \PYGZdq{} + characteristic.uuid)}
 \PYG{c+c1}{\PYGZsh{}     print(\PYGZdq{}  Data: \PYGZdq{} + str(data))}
 
-\PYG{c+c1}{\PYGZsh{} Instantiate a SimpleBleClient and set it\PYGZsq{}s scan callback}
-\PYG{n}{bleClient} \PYG{o}{=} \PYG{n}{SimpleBleClient}\PYG{p}{(}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Instantiate a PandaBotClient and set it\PYGZsq{}s scan callback}
+\PYG{n}{bleClient} \PYG{o}{=} \PYG{n}{PandaBotClient}\PYG{p}{(}\PYG{p}{)}
 \PYG{n}{bleClient}\PYG{o}{.}\PYG{n}{setScanCallback}\PYG{p}{(}\PYG{n}{myScanCallback}\PYG{p}{)}
 \PYG{c+c1}{\PYGZsh{} TODO: NOTIFICATIONS ARE NOT SUPPORTED YET}
 \PYG{c+c1}{\PYGZsh{} bleClient.setNotificationCallback(myNotificationCollback)}

@@ -1,7 +1,7 @@
-simpleble
+PandaBot
 =========
 
 .. toctree::
    :maxdepth: 4
 
-   simpleble
+   PandaBot

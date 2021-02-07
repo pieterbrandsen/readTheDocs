@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; simpleble 0.0.1 documentation</title>
+  <title>Introduction &mdash; PandaBot 0.0.1 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="simpleble 0.0.1 documentation" href="index.html"/>
-        <link rel="next" title="Documentation" href="simpleble.html"/>
-        <link rel="prev" title="Welcome to simpleble’s documentation!" href="index.html"/> 
+    <link rel="top" title="PandaBot 0.0.1 documentation" href="index.html"/>
+        <link rel="next" title="Documentation" href="PandaBot.html"/>
+        <link rel="prev" title="Welcome to PandaBot’s documentation!" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -56,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> simpleble
+            <a href="index.html" class="icon icon-home"> PandaBot
           
 
           
@@ -93,7 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="simpleble.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PandaBot.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Example Codes</a></li>
 </ul>
 
@@ -109,7 +109,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">simpleble</a>
+          <a href="index.html">PandaBot</a>
         
       </nav>
 
@@ -160,8 +160,8 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">simpleble</span></code> is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the <code class="docutils literal notranslate"><span class="pre">bluepy</span></code> package created by Ian Harvey (see <a class="reference external" href="https://github.com/IanHarvey/bluepy/">here</a>)</p>
-<p>The aim here was to define a single object which would allow users to perform the various operations performed by the <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Scanner</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Characteristic</span></code> classes of <code class="docutils literal notranslate"><span class="pre">bluepy</span></code>, from one central place. This functionality is facilitated by the <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> and <code class="docutils literal notranslate"><span class="pre">simpleble.SimpleBleDevice</span></code> classes, where the latter is an extention/subclass of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, combined with properties of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.ScanEntry</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PandaBot</span></code> is a high-level OO Python package which aims to provide an easy and intuitive way of interacting with nearby Bluetooth Low Energy (BLE) devices (GATT servers). In essence, this package is an extension of the <code class="docutils literal notranslate"><span class="pre">bluepy</span></code> package created by Ian Harvey (see <a class="reference external" href="https://github.com/IanHarvey/bluepy/">here</a>)</p>
+<p>The aim here was to define a single object which would allow users to perform the various operations performed by the <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Scanner</span></code>, <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Characteristic</span></code> classes of <code class="docutils literal notranslate"><span class="pre">bluepy</span></code>, from one central place. This functionality is facilitated by the <code class="docutils literal notranslate"><span class="pre">PandaBot.PandaBotClient</span></code> and <code class="docutils literal notranslate"><span class="pre">PandaBot.PandaBotDevice</span></code> classes, where the latter is an extention/subclass of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code>, combined with properties of <code class="docutils literal notranslate"><span class="pre">bluepy.btle.ScanEntry</span></code>.</p>
 <p>The current implementation has been developed in Python 3 and tested on a Raspberry Pi Zero W, running Raspbian 9 (stretch), but should work with Python 2.7+ (maybe with minor modifications in terms of printing and error handling) and most Debian based OSs.</p>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
@@ -171,9 +171,9 @@
 <div class="section" id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>As my main use-case scenario was to simply connect two devices, the current version of <a class="reference internal" href="simpleble.html#simpleble.SimpleBleClient" title="simpleble.SimpleBleClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code></a> has been designed and implemented with this use-case in mind. As such, if you are looking for a package to allow you to connect to multiple devices, then know that off-the-self this package DOES NOT allow you to do so. However, implementing such a feature is an easily achievable task, which has been planned for sometime in the near future and if there proves to be interest on the project, I would be happy to speed up the process.</li>
+<li>As my main use-case scenario was to simply connect two devices, the current version of <a class="reference internal" href="PandaBot.html#PandaBot.PandaBotClient" title="PandaBot.PandaBotClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandaBot.PandaBotClient</span></code></a> has been designed and implemented with this use-case in mind. As such, if you are looking for a package to allow you to connect to multiple devices, then know that off-the-self this package DOES NOT allow you to do so. However, implementing such a feature is an easily achievable task, which has been planned for sometime in the near future and if there proves to be interest on the project, I would be happy to speed up the process.</li>
 <li>Only Read and Write operations are currently supported, but I am planning on adding Notifications soon.</li>
-<li>Although the interfacing operations of the <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code> classes have been brought forward to the <a class="reference internal" href="simpleble.html#simpleble.SimpleBleClient" title="simpleble.SimpleBleClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code></a> class, the same has not been done for the <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Descriptor</span></code>, meaning that the <a class="reference internal" href="simpleble.html#simpleble.SimpleBleClient" title="simpleble.SimpleBleClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code></a> cannot be used to directly access the Descriptors. This can however be done easily by obtaining a handle of a <a class="reference internal" href="simpleble.html#simpleble.SimpleBleDevice" title="simpleble.SimpleBleDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleDevice</span></code></a> object and calling the superclass <code class="xref py py-meth docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral.getDescriptors()</span></code> method.</li>
+<li>Although the interfacing operations of the <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Service</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral</span></code> classes have been brought forward to the <a class="reference internal" href="PandaBot.html#PandaBot.PandaBotClient" title="PandaBot.PandaBotClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandaBot.PandaBotClient</span></code></a> class, the same has not been done for the <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.btle.Descriptor</span></code>, meaning that the <a class="reference internal" href="PandaBot.html#PandaBot.PandaBotClient" title="PandaBot.PandaBotClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandaBot.PandaBotClient</span></code></a> cannot be used to directly access the Descriptors. This can however be done easily by obtaining a handle of a <a class="reference internal" href="PandaBot.html#PandaBot.PandaBotDevice" title="PandaBot.PandaBotDevice"><code class="xref py py-class docutils literal notranslate"><span class="pre">PandaBot.PandaBotDevice</span></code></a> object and calling the superclass <code class="xref py py-meth docutils literal notranslate"><span class="pre">bluepy.btle.Peripheral.getDescriptors()</span></code> method.</li>
 </ul>
 </div>
 </div>
@@ -188,10 +188,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="simpleble.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PandaBot.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to simpleble’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to PandaBot’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

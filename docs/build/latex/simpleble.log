@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**simpleble.tex
-(./simpleble.tex
+**PandaBot.tex
+(./PandaBot.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 3 language(s) loaded.
 (./sphinxmanual.cls
@@ -1477,12 +1477,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
 )
 \@indexfile=\write3
-\openout3 = `simpleble.idx'.
+\openout3 = `PandaBot.idx'.
 
 
-Writing index file simpleble.idx
-(./simpleble.aux)
-\openout1 = `simpleble.aux'.
+Writing index file PandaBot.idx
+(./PandaBot.aux)
+\openout1 = `PandaBot.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
@@ -1602,7 +1602,7 @@ LaTeX Info: Redefining \ref on input line 65.
 LaTeX Info: Redefining \pageref on input line 65.
 LaTeX Info: Redefining \nameref on input line 65.
 \@outlinefile=\write4
-\openout4 = `simpleble.out'.
+\openout4 = `PandaBot.out'.
 
 Package hyperref Info: Option `pageanchor' set `false' on input line 68.
 
@@ -1790,7 +1790,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no s in font nullfont!
 \tf@toc=\write5
-\openout5 = `simpleble.toc'.
+\openout5 = `PandaBot.toc'.
 
 Missing character: There is no i in font nullfont!
 [1

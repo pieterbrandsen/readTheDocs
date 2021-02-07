@@ -1,32 +1,32 @@
 Documentation
 =================
 
-The ``SimpleBleClient`` class
+The ``PandaBotClient`` class
 *****************************
-.. autoclass:: simpleble.SimpleBleClient
+.. autoclass:: PandaBot.PandaBotClient
     :members:
     :undoc-members:
     :show-inheritance:
 
 
-The ``SimpleBleDevice`` class
+The ``PandaBotDevice`` class
 *****************************
-.. autoclass:: simpleble.SimpleBleDevice
+.. autoclass:: PandaBot.PandaBotDevice
     :members:
     :undoc-members:
     :show-inheritance:
 
 
-The ``SimpleBleScanDelegate`` class
+The ``PandaBotScanDelegate`` class
 ***********************************
-.. autoclass:: simpleble.SimpleBleScanDelegate
+.. autoclass:: PandaBot.PandaBotScanDelegate
     :members:
     :undoc-members:
     :show-inheritance:
 
-The ``SimpleBleNotificationDelegate`` class
+The ``PandaBotNotificationDelegate`` class
 *******************************************
-.. autoclass:: simpleble.SimpleBleNotificationDelegate
+.. autoclass:: PandaBot.PandaBotNotificationDelegate
     :members:
     :undoc-members:
     :show-inheritance:
