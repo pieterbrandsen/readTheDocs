@@ -3,5 +3,6 @@
   "cSpell.words": [
     "maxdepth",
     "toctree"
-  ]
+  ],
+  "restructuredtext.linter.run": "off"
 }
