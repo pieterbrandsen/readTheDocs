@@ -6,4 +6,4 @@ Welcome to ``PandaBot``'s documentation!
    :caption: Contents
    
    intro
-   examples
+   
